@@ -1,6 +1,7 @@
 ﻿using System; 
 using System.Collections.Generic; 
 using System.Linq;
+using System.Numerics;
 
 namespace HospitalSystemTask_OOP
 {
@@ -8,7 +9,11 @@ namespace HospitalSystemTask_OOP
     {
         static void Main(string[] args)
         {
-            Hospital hospital = new Hospital(); 
+            Hospital hospital = new Hospital();
+
+            Doctor doc1 = new Doctor { Id = 1, Name = "Dr. Fahad", Age = 45, Specialization = "Cardiology" }; 
+            Doctor doc2 = new Doctor { Id = 2, Name = "Dr. Sama", Age = 38, Specialization = "Dermatology" };
+
         }
     }
 }
