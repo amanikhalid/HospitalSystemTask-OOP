@@ -89,7 +89,9 @@ namespace HospitalSystemTask_OOP
         
         public class Hospital : Person 
         {
-            private string phoneNumber; 
+            private string phoneNumber;
+            // List of doctors and patients
+            public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
 
 
 
