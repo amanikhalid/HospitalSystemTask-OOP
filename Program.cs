@@ -182,6 +182,7 @@ namespace HospitalSystemTask_OOP
             Patient pat = new Patient { Id = id, Name = name, Age = age, PhoneNumber = phone };
             hospital.AddPatient(pat);
             Console.WriteLine("Patient added successfully.");
+            Console.ReadLine();
         }
 
         static void BookAppointment(Hospital hospital) // Method to book an appointment
