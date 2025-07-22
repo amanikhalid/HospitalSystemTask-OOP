@@ -127,11 +127,11 @@ namespace HospitalSystemTask_OOP
         static int GetValidInt(string prompt) // Method to get a valid integer input 
         {
             int val;
-            while (true) 
+            while (true)
             {
                 Console.Write(prompt);
                 if (int.TryParse(Console.ReadLine(), out val)) break;
-                Console.WriteLine("Invalid input. Please enter a number."); 
+                Console.WriteLine("Invalid input. Please enter a number.");
             }
             return val; // Return the valid integer
         }
@@ -181,6 +181,48 @@ namespace HospitalSystemTask_OOP
         public void Display()
         {
             Console.WriteLine($"ID: {AppointmentId} | {AppointmentDate} | Dr. {Doctor.Name} ({Doctor.Specialization}) with {Patient.Name}");
+        }
+    }
+
+    public class Hospital
+    {
+        // Hospital class to manage doctors, patients, and appointments
+        private List<Doctor> doctors = new();
+        private List<Patient> patients = new();
+        private List<Appointment> appointments = new();
+        private int appointmentCounter = 1;
+
+
+        public void AddDoctor(Doctor doc) => doctors.Add(doc); // Method to add a doctor
+        public void AddPatient(Patient pat) => patients.Add(pat); // Method to add a patient
+
+        public void BookAppointment(int doctorId, int patientId, DateTime date)
+        {
+            var doctor = doctors.FirstOrDefault(d => d.Id == doctorId);
+            var patient = patients.FirstOrDefault(p => p.Id == patientId);
+
+            if (doctor == null || patient == null) // Check if doctor and patient exist
+            {
+                Console.WriteLine("Invalid doctor or patient ID.");
+                return;
+            }
+
+            bool alreadyBooked = appointments.Any(a => a.Doctor.Id == doctorId && a.AppointmentDate == date);
+            if (alreadyBooked) // Check if the doctor already has an appointment at the specified time
+            {
+                Console.WriteLine("Doctor already has an appointment at this time.");
+                return;
+            }
+
+            Appointment appt = new Appointment
+            {
+                AppointmentId = appointmentCounter++,
+                Doctor = doctor,
+                Patient = patient,
+                AppointmentDate = date
+            };
+            appointments.Add(appt); // Add the appointment to the list
+            Console.WriteLine("Appointment booked successfully.");
         }
     }
 }
