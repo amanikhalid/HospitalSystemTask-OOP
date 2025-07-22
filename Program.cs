@@ -115,6 +115,15 @@ namespace HospitalSystemTask_OOP
 
             Console.Write("Enter specialization: ");
             string spec = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(spec))
+            { // Validate specialization
+                {
+                    Console.WriteLine("Specialization cannot be empty.");
+                    Console.ReadLine();
+                    return;
+                }
+            }
+
 
             Doctor doc = new Doctor { Id = id, Name = name, Age = age, Specialization = spec };
             hospital.AddDoctor(doc);
