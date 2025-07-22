@@ -115,5 +115,15 @@ namespace HospitalSystemTask_OOP
             }
         }
 
+        public class Hospital 
+        {
+            // Fields
+            private List<Doctor> doctors = new();
+            private List<Patient> patients = new();
+            private List<Appointment> appointments = new();
+            private int appointmentCounter = 1;
+
+        }
+
     } 
 }
