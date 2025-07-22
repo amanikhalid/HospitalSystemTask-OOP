@@ -123,5 +123,17 @@ namespace HospitalSystemTask_OOP
                 Console.WriteLine("Invalid date/time format.");
             }
         }
+
+        static int GetValidInt(string prompt) // Method to get a valid integer input 
+        {
+            int val;
+            while (true) 
+            {
+                Console.Write(prompt);
+                if (int.TryParse(Console.ReadLine(), out val)) break;
+                Console.WriteLine("Invalid input. Please enter a number."); 
+            }
+            return val; // Return the valid integer
+        }
     }
 }
