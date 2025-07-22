@@ -34,9 +34,13 @@ namespace HospitalSystemTask_OOP
             Console.WriteLine("\nAll Appointments");
             hospital.DisplayAllAppointments();
 
-            // Searching appointments
+            // Searching appointments (by patient name)
             Console.WriteLine("\nSearch by Patient Name: Amani");
             hospital.SearchAppointmentsByPatientName("Amani");
+
+            // Searching appointments (by date)
+            Console.WriteLine("\n--- Search by Date: 2025-07-23 ---");
+            hospital.SearchAppointmentsByDate(new DateTime(2025, 7, 23));
         }
 
     }
