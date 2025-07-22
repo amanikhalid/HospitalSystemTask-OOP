@@ -139,18 +139,6 @@ namespace HospitalSystemTask_OOP
             Console.WriteLine("Add Patient");
 
             int id = GetValidInt("Enter patient ID: ");
-            if (id < 0)
-            { // Validate ID
-                Console.WriteLine("ID must be a positive number.");
-                Console.ReadLine();
-                return;
-            }
-            if (id.ToString().Length < 3) // Validate ID length
-            {
-                Console.WriteLine("ID must be at least 3 digits long.");
-                Console.ReadLine();
-                return;
-            }
 
             if (hospital.DoctorIdExists(id)) // Check if patient ID already exists
             {
@@ -173,6 +161,13 @@ namespace HospitalSystemTask_OOP
 
             Console.Write("Enter name: ");
             string name = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(name)) // Validate name
+            {
+                Console.WriteLine("Name cannot be empty.");
+                Console.ReadLine();
+                return;
+            }
+
             int age = GetValidInt("Enter age: ");
             Console.Write("Enter phone number: ");
             string phone = Console.ReadLine();
