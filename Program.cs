@@ -161,13 +161,26 @@ namespace HospitalSystemTask_OOP
         }
     }
 
-    public class Patient : Person
+    public class Patient : Person // Patient class inheriting from Person
     {
         public string PhoneNumber { get; set; }
 
         public override void DisplayInfo()
         {
             Console.WriteLine($"Patient: {Name}, Age: {Age}, Phone: {PhoneNumber}");
+        }
+    }
+
+    public class Appointment // Appointment class to hold appointment details
+    {
+        public int AppointmentId { get; set; }
+        public Doctor Doctor { get; set; }
+        public Patient Patient { get; set; }
+        public DateTime AppointmentDate { get; set; }
+
+        public void Display()
+        {
+            Console.WriteLine($"ID: {AppointmentId} | {AppointmentDate} | Dr. {Doctor.Name} ({Doctor.Specialization}) with {Patient.Name}");
         }
     }
 }
