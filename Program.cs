@@ -176,6 +176,19 @@ namespace HospitalSystemTask_OOP
                 Console.WriteLine("Appointment booked successfully.");
             }
 
+
+            public void DisplayAllAppointments()
+            {
+                if (appointments.Count == 0)
+                {
+                    Console.WriteLine("No appointments found.");
+                    return;
+                }
+
+                foreach (var appt in appointments)
+                    appt.Display();
+            }
+
         }
 
     } 
