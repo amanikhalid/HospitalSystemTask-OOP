@@ -177,18 +177,30 @@ namespace HospitalSystemTask_OOP
             }
 
 
-            public void DisplayAllAppointments()
+            public void DisplayAllAppointments() 
             {
-                if (appointments.Count == 0)
+                if (appointments.Count == 0) 
                 {
                     Console.WriteLine("No appointments found.");
                     return;
                 }
 
-                foreach (var appt in appointments)
+                foreach (var appt in appointments) // Display each appointment
                     appt.Display();
             }
 
+            public void SearchAppointmentsByPatientName(string name) 
+            {
+                var found = appointments.Where(a => a.Patient.Name.Equals(name, StringComparison.OrdinalIgnoreCase)).ToList();
+                if (found.Count == 0)
+                {
+                    Console.WriteLine("No appointments found for that patient."); 
+                    return;
+                }
+
+                foreach (var appt in found) 
+                    appt.Display();
+            }
         }
 
     } 
