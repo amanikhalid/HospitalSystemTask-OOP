@@ -74,6 +74,9 @@ namespace HospitalSystemTask_OOP
             private string specialization;
             private List<DateTime> availableAppointments = new();
 
+            // Constructor
+            public string Specialization { get => specialization; set => specialization = value; } 
+            public List<DateTime> AvailableAppointments { get => availableAppointments; set => availableAppointments = value; }
         }
 
     } 
