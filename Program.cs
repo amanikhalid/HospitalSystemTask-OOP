@@ -39,8 +39,12 @@ namespace HospitalSystemTask_OOP
             hospital.SearchAppointmentsByPatientName("Amani");
 
             // Searching appointments (by date)
-            Console.WriteLine("\n--- Search by Date: 2025-07-23 ---");
+            Console.WriteLine("\nSearch by Date: 2025-07-23");
             hospital.SearchAppointmentsByDate(new DateTime(2025, 7, 23));
+
+            // Displaying available doctors
+            Console.WriteLine("\nDoctors with Specialization: Cardiology");
+            hospital.ShowAvailableDoctors("Cardiology");
         }
 
     }
