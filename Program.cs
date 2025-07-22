@@ -136,4 +136,16 @@ namespace HospitalSystemTask_OOP
             return val; // Return the valid integer
         }
     }
+
+    public class Person // Base class for Doctor and Patient
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+
+        public virtual void DisplayInfo()
+        {
+            Console.WriteLine($"ID: {Id}, Name: {Name}, Age: {Age}");
+        }
+    }
 }
