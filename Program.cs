@@ -123,6 +123,11 @@ namespace HospitalSystemTask_OOP
             private List<Appointment> appointments = new();
             private int appointmentCounter = 1;
 
+            // Methods
+            public void AddDoctor(Doctor doc)
+            {
+                doctors.Add(doc);
+            }
         }
 
     } 
