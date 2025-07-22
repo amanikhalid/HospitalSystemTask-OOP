@@ -100,8 +100,19 @@ namespace HospitalSystemTask_OOP
                 Console.WriteLine($"Patient: {Name}, Age: {Age}, Phone: {PhoneNumber}"); 
             }
 
+        }
+        
+        public class Appointment 
+        {
+            public int AppointmentId { get; set; }
+            public Doctor Doctor { get; set; }
+            public Patient Patient { get; set; }
+            public DateTime AppointmentDate { get; set; }
 
-
+            public void Display()
+            {
+                Console.WriteLine($"ID: {AppointmentId} | {AppointmentDate} | Dr. {Doctor.Name} ({Doctor.Specialization}) with {Patient.Name}");
+            }
         }
 
     } 
