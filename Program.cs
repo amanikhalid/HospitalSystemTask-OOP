@@ -201,6 +201,19 @@ namespace HospitalSystemTask_OOP
                 foreach (var appt in found) 
                     appt.Display();
             }
+
+            public void SearchAppointmentsByDate(DateTime date)
+            {
+                var found = appointments.Where(a => a.AppointmentDate.Date == date.Date).ToList();
+                if (found.Count == 0)
+                {
+                    Console.WriteLine("No appointments found on that date.");
+                    return;
+                }
+
+                foreach (var appt in found)
+                    appt.Display();
+            }
         }
 
     } 
