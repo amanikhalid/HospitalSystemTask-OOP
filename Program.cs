@@ -160,4 +160,14 @@ namespace HospitalSystemTask_OOP
             Console.WriteLine($"Doctor: {Name}, Age: {Age}, Specialization: {Specialization}");
         }
     }
+
+    public class Patient : Person
+    {
+        public string PhoneNumber { get; set; }
+
+        public override void DisplayInfo()
+        {
+            Console.WriteLine($"Patient: {Name}, Age: {Age}, Phone: {PhoneNumber}");
+        }
+    }
 }
