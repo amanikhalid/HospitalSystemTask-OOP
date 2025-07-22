@@ -190,6 +190,19 @@ namespace HospitalSystemTask_OOP
             Console.WriteLine("Book Appointment");
 
             int docId = GetValidInt("Enter doctor ID: ");
+            if (!hospital.DoctorIdExists(docId)) // Check if doctor ID exists
+            {
+                Console.WriteLine("Doctor with this ID does not exist.");
+                Console.ReadLine();
+                return;
+            }
+            if (docId <= 0) // Validate doctor ID
+            {
+                Console.WriteLine("Doctor ID must be a positive number.");
+                Console.ReadLine();
+                return;
+            }
+            
             int patId = GetValidInt("Enter patient ID: ");
             Console.Write("Enter appointment date & time (e.g., 2025-07-23 09:00): ");
             string input = Console.ReadLine();
