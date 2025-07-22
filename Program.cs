@@ -10,11 +10,11 @@ namespace HospitalSystemTask_OOP
     {
         static void Main(string[] args)
         {
-            Hospital hospital = new Hospital();
+            Hospital hospital = new Hospital(); // Initialize the hospital system
 
             bool exit = false;
 
-            while (!exit)
+            while (!exit) // Main menu loop
             {
                 Console.WriteLine("\n Hospital System Menu ");
                 Console.WriteLine("1. Add Doctor");
@@ -70,6 +70,22 @@ namespace HospitalSystemTask_OOP
                 }
 
             }
+        }
+
+        static void AddDoctor(Hospital hospital) // Method to add a doctor
+        {
+            Console.WriteLine("Add Doctor");
+
+            int id = GetValidInt("Enter doctor ID: ");
+            Console.Write("Enter name: ");
+            string name = Console.ReadLine();
+            int age = GetValidInt("Enter age: ");
+            Console.Write("Enter specialization: ");
+            string spec = Console.ReadLine();
+
+            Doctor doc = new Doctor { Id = id, Name = name, Age = age, Specialization = spec };
+            hospital.AddDoctor(doc);
+            Console.WriteLine("Doctor added successfully.");
         }
     }
 }
