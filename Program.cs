@@ -170,6 +170,13 @@ namespace HospitalSystemTask_OOP
 
             int age = GetValidInt("Enter age: ");
             Console.Write("Enter phone number: ");
+            if (age < 0 || age > 120) // Validate age
+            {
+                Console.WriteLine("Age must be between 0 and 120.");
+                Console.ReadLine();
+                return;
+            }
+
             string phone = Console.ReadLine();
 
             Patient pat = new Patient { Id = id, Name = name, Age = age, PhoneNumber = phone };
