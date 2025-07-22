@@ -22,6 +22,10 @@ namespace HospitalSystemTask_OOP
 
             hospital.AddPatient(pat1); // first patient
             hospital.AddPatient(pat2); // second patient
+
+            hospital.BookAppointment(1, 101, new DateTime(2025, 7, 23, 9, 0, 0));
+            hospital.BookAppointment(2, 102, new DateTime(2025, 7, 23, 10, 0, 0));
+            hospital.BookAppointment(1, 102, new DateTime(2025, 7, 23, 9, 0, 0));
         }
 
     }
