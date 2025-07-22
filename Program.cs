@@ -135,9 +135,42 @@ namespace HospitalSystemTask_OOP
 
         static void AddPatient(Hospital hospital) // Method to add a patient
         {
+            
             Console.WriteLine("Add Patient");
 
             int id = GetValidInt("Enter patient ID: ");
+            if (id < 0)
+            { // Validate ID
+                Console.WriteLine("ID must be a positive number.");
+                Console.ReadLine();
+                return;
+            }
+            if (id.ToString().Length < 3) // Validate ID length
+            {
+                Console.WriteLine("ID must be at least 3 digits long.");
+                Console.ReadLine();
+                return;
+            }
+
+            if (hospital.DoctorIdExists(id)) // Check if patient ID already exists
+            {
+                Console.WriteLine("Patient with this ID already exists.");
+                Console.ReadLine();
+                return;
+            }
+            if (id <= 0) // Validate ID
+            {
+                Console.WriteLine("ID must be a positive number.");
+                Console.ReadLine();
+                return;
+            }
+            if (id.ToString().Length < 3) // Validate ID length
+            {
+                Console.WriteLine("ID must be at least 3 digits long.");
+                Console.ReadLine();
+                return;
+            }
+
             Console.Write("Enter name: ");
             string name = Console.ReadLine();
             int age = GetValidInt("Enter age: ");
