@@ -134,6 +134,19 @@ namespace HospitalSystemTask_OOP
                 patients.Add(pat);
             }
 
+            
+            public void ShowAvailableDoctors(string specialization) 
+            {
+                var filtered = doctors.Where(d => d.Specialization.Equals(specialization, StringComparison.OrdinalIgnoreCase)).ToList();
+                if (filtered.Count == 0)
+                {
+                    Console.WriteLine("No doctors found with that specialization.");
+                    return;
+                }
+                foreach (var doc in filtered)
+                    doc.DisplayInfo();
+            }
+
 
         }
 
