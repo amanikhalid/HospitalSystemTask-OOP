@@ -128,6 +128,13 @@ namespace HospitalSystemTask_OOP
             {
                 doctors.Add(doc);
             }
+
+            public void AddPatient(Patient pat)
+            {
+                patients.Add(pat);
+            }
+
+
         }
 
     } 
