@@ -106,6 +106,13 @@ namespace HospitalSystemTask_OOP
             }
 
             int age = GetValidInt("Enter age: ");
+            if (age < 0 || age > 120) // Validate age
+            {
+                Console.WriteLine("Age must be between 0 and 120.");
+                Console.ReadLine();
+                return;
+            }
+
             Console.Write("Enter specialization: ");
             string spec = Console.ReadLine();
 
