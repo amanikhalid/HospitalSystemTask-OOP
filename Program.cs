@@ -204,6 +204,18 @@ namespace HospitalSystemTask_OOP
             }
             
             int patId = GetValidInt("Enter patient ID: ");
+            if (!hospital.DoctorIdExists(patId)) // Check if patient ID exists
+            {
+                Console.WriteLine("Patient with this ID does not exist.");
+                Console.ReadLine();
+                return;
+            }
+            if (patId <= 0) // Validate patient ID
+            {
+                Console.WriteLine("Patient ID must be a positive number.");
+                Console.ReadLine();
+                return;
+            }
             Console.Write("Enter appointment date & time (e.g., 2025-07-23 09:00): ");
             string input = Console.ReadLine();
 
