@@ -50,12 +50,17 @@ namespace HospitalSystemTask_OOP
 
         public class Person
         {
-            // Base class for common properties of Doctor and Patient
+            
             public int id { get; set; }
             public string name { get; set; }
             public int age { get; set; }
 
-            
+            // Constructor
+            public int Id { get => id; set => id = value; }
+            public string Name { get => name; set => name = value; }
+            public int Age { get => age; set => age = value; }
+
+
 
 
 
