@@ -184,7 +184,7 @@ namespace HospitalSystemTask_OOP
         }
     }
 
-    public class Hospital
+    public class Hospital 
     {
         // Hospital class to manage doctors, patients, and appointments
         private List<Doctor> doctors = new();
@@ -223,6 +223,18 @@ namespace HospitalSystemTask_OOP
             };
             appointments.Add(appt); // Add the appointment to the list
             Console.WriteLine("Appointment booked successfully.");
+        }
+
+        public void DisplayAllAppointments() // Method to display all appointments
+        {
+            if (!appointments.Any())
+            {
+                Console.WriteLine("No appointments found.");
+                return;
+            }
+
+            foreach (var appt in appointments)
+                appt.Display();
         }
     }
 }
