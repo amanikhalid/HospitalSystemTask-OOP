@@ -263,5 +263,18 @@ namespace HospitalSystemTask_OOP
             foreach (var appt in found)
                 appt.Display();
         }
+
+        public void ShowAvailableDoctors(string specialization) // Method to show doctors by specialization
+        {
+            var filtered = doctors.Where(d => d.Specialization.Equals(specialization, StringComparison.OrdinalIgnoreCase)).ToList();
+            if (!filtered.Any())
+            {
+                Console.WriteLine("No doctors found with that specialization.");
+                return;
+            }
+
+            foreach (var doc in filtered)
+                doc.DisplayInfo();
+        }
     }
 }
