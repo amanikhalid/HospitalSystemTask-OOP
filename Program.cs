@@ -89,7 +89,7 @@ namespace HospitalSystemTask_OOP
         }
 
 
-        static void AddPatient(Hospital hospital)
+        static void AddPatient(Hospital hospital) // Method to add a patient
         {
             Console.WriteLine("Add Patient");
 
@@ -103,6 +103,25 @@ namespace HospitalSystemTask_OOP
             Patient pat = new Patient { Id = id, Name = name, Age = age, PhoneNumber = phone };
             hospital.AddPatient(pat);
             Console.WriteLine("Patient added successfully.");
+        }
+
+        static void BookAppointment(Hospital hospital) // Method to book an appointment
+        {
+            Console.WriteLine("Book Appointment");
+
+            int docId = GetValidInt("Enter doctor ID: ");
+            int patId = GetValidInt("Enter patient ID: ");
+            Console.Write("Enter appointment date & time (e.g., 2025-07-23 09:00): ");
+            string input = Console.ReadLine();
+
+            if (DateTime.TryParse(input, out DateTime apptDate))
+            {
+                hospital.BookAppointment(docId, patId, apptDate);
+            }
+            else
+            {
+                Console.WriteLine("Invalid date/time format.");
+            }
         }
     }
 }
