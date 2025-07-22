@@ -90,8 +90,15 @@ namespace HospitalSystemTask_OOP
         public class Hospital : Person 
         {
             private string phoneNumber;
-            // List of doctors and patients
-            public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
+
+            // Constructor
+            public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; } 
+            
+            
+            public override void DisplayInfo() 
+            {
+                Console.WriteLine($"Patient: {Name}, Age: {Age}, Phone: {PhoneNumber}"); 
+            }
 
 
 
