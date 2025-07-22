@@ -30,8 +30,46 @@ namespace HospitalSystemTask_OOP
                 string choice = Console.ReadLine();
                 Console.WriteLine();
 
-
+                switch (choice)
+                {
+                    case "1":
+                        AddDoctor(hospital);
+                        break;
+                    case "2":
+                        AddPatient(hospital);
+                        break;
+                    case "3":
+                        BookAppointment(hospital);
+                        break;
+                    case "4":
+                        hospital.DisplayAllAppointments();
+                        break;
+                    case "5":
+                        Console.Write("Enter patient name: ");
+                        string name = Console.ReadLine();
+                        hospital.SearchAppointmentsByPatientName(name);
+                        break;
+                    case "6":
+                        Console.Write("Enter appointment date (yyyy-mm-dd): ");
+                        if (DateTime.TryParse(Console.ReadLine(), out DateTime date))
+                            hospital.SearchAppointmentsByDate(date);
+                        else
+                            Console.WriteLine("Invalid date format.");
+                        break;
+                    case "7":
+                        Console.Write("Enter specialization: ");
+                        string specialization = Console.ReadLine();
+                        hospital.ShowAvailableDoctors(specialization);
+                        break;
+                    case "0":
+                        exit = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option. Try again.");
+                        break;
+                }
 
             }
         }
+    }
 }
