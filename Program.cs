@@ -16,6 +16,7 @@ namespace HospitalSystemTask_OOP
 
             while (!exit) // Main menu loop
             {
+                Console.Clear(); // Clear the console for a fresh menu display
                 Console.WriteLine("\n Hospital System Menu ");
                 Console.WriteLine("1. Add Doctor");
                 Console.WriteLine("2. Add Patient");
