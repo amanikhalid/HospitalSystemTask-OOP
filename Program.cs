@@ -33,6 +33,10 @@ namespace HospitalSystemTask_OOP
             // Displaying all appointments
             Console.WriteLine("\nAll Appointments");
             hospital.DisplayAllAppointments();
+
+            // Searching appointments
+            Console.WriteLine("\nSearch by Patient Name: Amani");
+            hospital.SearchAppointmentsByPatientName("Amani");
         }
 
     }
