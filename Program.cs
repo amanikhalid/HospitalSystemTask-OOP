@@ -66,14 +66,13 @@ namespace HospitalSystemTask_OOP
             }
 
 
+        }
 
-
-
-
-
-
-
-
+        public class Doctor : Person
+        {
+            
+            private string specialization;
+            private List<DateTime> availableAppointments = new();
 
         }
 
