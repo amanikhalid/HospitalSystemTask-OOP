@@ -138,15 +138,43 @@ namespace HospitalSystemTask_OOP
             public void ShowAvailableDoctors(string specialization) 
             {
                 var filtered = doctors.Where(d => d.Specialization.Equals(specialization, StringComparison.OrdinalIgnoreCase)).ToList();
-                if (filtered.Count == 0)
+                if (filtered.Count == 0) // No doctors found 
                 {
                     Console.WriteLine("No doctors found with that specialization.");
                     return;
                 }
-                foreach (var doc in filtered)
+                foreach (var doc in filtered) // Display each doctor
                     doc.DisplayInfo();
             }
 
+            public void BookAppointment(int doctorId, int patientId, DateTime date) 
+            {
+                var doctor = doctors.FirstOrDefault(d => d.Id == doctorId); 
+                var patient = patients.FirstOrDefault(p => p.Id == patientId);
+
+                if (doctor == null || patient == null) 
+                {
+                    Console.WriteLine("Invalid doctor or patient ID."); 
+                    return;
+                }
+
+                bool alreadyBooked = appointments.Any(a => a.Doctor.Id == doctorId && a.AppointmentDate == date);
+                if (alreadyBooked) 
+                {
+                    Console.WriteLine("Doctor already has an appointment at this time.");
+                    return;
+                }
+
+                Appointment appt = new Appointment 
+                {
+                    AppointmentId = appointmentCounter++, // Increment appointment ID
+                    Doctor = doctor,
+                    Patient = patient,
+                    AppointmentDate = date
+                };
+                appointments.Add(appt); 
+                Console.WriteLine("Appointment booked successfully.");
+            }
 
         }
 
