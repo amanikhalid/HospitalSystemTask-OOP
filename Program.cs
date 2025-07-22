@@ -86,12 +86,13 @@ namespace HospitalSystemTask_OOP
                 Console.ReadLine();
                 return;
             }
-            if (hospital.Doctors.Any(d => d.Id == id)) // Check if doctor ID already exists
+            if (hospital.DoctorIdExists(id))
             {
                 Console.WriteLine("Doctor with this ID already exists.");
                 Console.ReadLine();
                 return;
             }
+
             if (id <= 0) // Validate ID
             {
                 Console.WriteLine("ID must be a positive number.");
@@ -123,11 +124,12 @@ namespace HospitalSystemTask_OOP
                     return;
                 }
             }
-
+            
 
             Doctor doc = new Doctor { Id = id, Name = name, Age = age, Specialization = spec };
             hospital.AddDoctor(doc);
             Console.WriteLine("Doctor added successfully.");
+            Console.ReadLine();
         }
 
 
@@ -318,5 +320,11 @@ namespace HospitalSystemTask_OOP
             foreach (var doc in filtered)
                 doc.DisplayInfo();
         }
+
+        public bool DoctorIdExists(int id)
+        {
+            return doctors.Any(d => d.Id == id);
+        }
+
     }
 }
