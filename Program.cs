@@ -217,7 +217,9 @@ namespace HospitalSystemTask_OOP
                 return;
             }
             Console.Write("Enter appointment date & time (e.g., 2025-07-23 09:00): ");
+
             string input = Console.ReadLine();
+
 
             if (DateTime.TryParse(input, out DateTime apptDate))
             {
@@ -226,6 +228,7 @@ namespace HospitalSystemTask_OOP
             else
             {
                 Console.WriteLine("Invalid date/time format.");
+                Console.ReadLine();
             }
         }
 
