@@ -147,5 +147,17 @@ namespace HospitalSystemTask_OOP
         {
             Console.WriteLine($"ID: {Id}, Name: {Name}, Age: {Age}");
         }
+
+    }
+
+    public class Doctor : Person // Doctor class inheriting from Person
+    {
+        public string Specialization { get; set; }
+        public List<DateTime> AvailableAppointments { get; set; } = new();
+
+        public override void DisplayInfo()
+        {
+            Console.WriteLine($"Doctor: {Name}, Age: {Age}, Specialization: {Specialization}");
+        }
     }
 }
