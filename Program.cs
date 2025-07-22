@@ -80,6 +80,31 @@ namespace HospitalSystemTask_OOP
             int id = GetValidInt("Enter doctor ID: ");
             Console.Write("Enter name: ");
             string name = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                Console.WriteLine("Name cannot be empty.");
+                Console.ReadLine();
+                return;
+            }
+            if (hospital.Doctors.Any(d => d.Id == id)) // Check if doctor ID already exists
+            {
+                Console.WriteLine("Doctor with this ID already exists.");
+                Console.ReadLine();
+                return;
+            }
+            if (id <= 0) // Validate ID
+            {
+                Console.WriteLine("ID must be a positive number.");
+                Console.ReadLine();
+                return;
+            }
+            if (name.Length < 3) // Validate name length
+            {
+                Console.WriteLine("Name must be at least 3 characters long.");
+                Console.ReadLine();
+                return;
+            }
+
             int age = GetValidInt("Enter age: ");
             Console.Write("Enter specialization: ");
             string spec = Console.ReadLine();
