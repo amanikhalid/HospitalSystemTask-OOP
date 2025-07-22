@@ -77,6 +77,13 @@ namespace HospitalSystemTask_OOP
             // Constructor
             public string Specialization { get => specialization; set => specialization = value; } 
             public List<DateTime> AvailableAppointments { get => availableAppointments; set => availableAppointments = value; }
+
+            
+            public override void DisplayInfo()
+            {
+                Console.WriteLine($"Doctor: {Name}, Age: {Age}, Specialization: {Specialization}");
+            }
+
         }
 
     } 
