@@ -60,6 +60,11 @@ namespace HospitalSystemTask_OOP
             public string Name { get => name; set => name = value; }
             public int Age { get => age; set => age = value; }
 
+            public virtual void DisplayInfo() 
+            {
+                Console.WriteLine($"ID: {Id}, Name: {Name}, Age: {Age}");
+            }
+
 
 
 
