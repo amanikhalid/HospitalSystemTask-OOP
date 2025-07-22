@@ -87,5 +87,22 @@ namespace HospitalSystemTask_OOP
             hospital.AddDoctor(doc);
             Console.WriteLine("Doctor added successfully.");
         }
+
+
+        static void AddPatient(Hospital hospital)
+        {
+            Console.WriteLine("Add Patient");
+
+            int id = GetValidInt("Enter patient ID: ");
+            Console.Write("Enter name: ");
+            string name = Console.ReadLine();
+            int age = GetValidInt("Enter age: ");
+            Console.Write("Enter phone number: ");
+            string phone = Console.ReadLine();
+
+            Patient pat = new Patient { Id = id, Name = name, Age = age, PhoneNumber = phone };
+            hospital.AddPatient(pat);
+            Console.WriteLine("Patient added successfully.");
+        }
     }
 }
