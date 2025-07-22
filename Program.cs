@@ -236,5 +236,18 @@ namespace HospitalSystemTask_OOP
             foreach (var appt in appointments)
                 appt.Display();
         }
+
+        public void SearchAppointmentsByPatientName(string name) // Method to search appointments by patient name
+        {
+            var found = appointments.Where(a => a.Patient.Name.Equals(name, StringComparison.OrdinalIgnoreCase)).ToList();
+            if (!found.Any())
+            {
+                Console.WriteLine("No appointments found for that patient.");
+                return;
+            }
+
+            foreach (var appt in found) // Display each appointment found
+                appt.Display();
+        }
     }
 }
