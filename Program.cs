@@ -88,8 +88,11 @@ namespace HospitalSystemTask_OOP
 
         
         public class Hospital : Person 
-        { 
-        
+        {
+            private string phoneNumber; 
+
+
+
         }
 
     } 
