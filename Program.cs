@@ -2,6 +2,7 @@
 using System.Collections.Generic; 
 using System.Linq;
 using System.Numerics;
+using System.Xml.Linq;
 
 namespace HospitalSystemTask_OOP
 {
@@ -47,5 +48,24 @@ namespace HospitalSystemTask_OOP
             hospital.ShowAvailableDoctors("Cardiology");
         }
 
-    }
+        public class Person
+        {
+            // Base class for common properties of Doctor and Patient
+            public int id { get; set; }
+            public string name { get; set; }
+            public int age { get; set; }
+
+            
+
+
+
+
+
+
+
+
+
+        }
+
+    } 
 }
