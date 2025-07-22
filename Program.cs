@@ -14,6 +14,8 @@ namespace HospitalSystemTask_OOP
             Doctor doc1 = new Doctor { Id = 1, Name = "Dr. Fahad", Age = 45, Specialization = "Cardiology" }; 
             Doctor doc2 = new Doctor { Id = 2, Name = "Dr. Sama", Age = 38, Specialization = "Dermatology" };
 
+            Patient pat1 = new Patient { Id = 101, Name = "Amani", Age = 27, PhoneNumber = "92123456" };
+            Patient pat2 = new Patient { Id = 102, Name = "Abdullah", Age = 34, PhoneNumber = "93334567" };
         }
     }
 }
