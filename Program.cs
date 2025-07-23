@@ -290,12 +290,14 @@ namespace HospitalSystemTask_OOP
         {
             // save doctors to file
             File.WriteAllLines("doctors.txt", doctors.Select(d =>
-                $"{d.Id},{d.Name},{d.Age},{d.Specialization}"
-            ));
+                $"{d.Id},{d.Name},{d.Age},{d.Specialization}"));
             // save patients to file
             File.WriteAllLines("patients.txt", patients.Select(p =>
-            $"{p.Id},{p.Name},{p.Age},{p.PhoneNumber}"
-  ));
+            $"{p.Id},{p.Name},{p.Age},{p.PhoneNumber}"));
+
+            // save appointments to file
+            File.WriteAllLines("appointments.txt", appointments.Select(a =>
+            $"{a.AppointmentId},{a.Doctor.Id},{a.Patient.Id},{a.AppointmentDate}"));
 
 
         }
