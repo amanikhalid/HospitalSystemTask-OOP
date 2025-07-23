@@ -12,8 +12,8 @@ namespace HospitalSystemTask_OOP
             Hospital hospital = new Hospital();
             bool exit = false;
 
-            hospital.LoadFromFiles();
-          
+            hospital.LoadFromFiles(); 
+
 
             while (!exit) // Main menu loop
             {
@@ -53,7 +53,12 @@ namespace HospitalSystemTask_OOP
                         Console.Write("Enter specialization: ");
                         hospital.ShowAvailableDoctors(Console.ReadLine());
                         Console.ReadLine(); break;
-                    case "0": exit = true; break;
+
+                    case "0":
+                        hospital.SaveToFiles(); // Save data before exiting
+                        exit = true;
+                        break;
+
                     default: Console.WriteLine("Invalid option. Try again."); break;
                 }
             }
