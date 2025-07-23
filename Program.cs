@@ -292,6 +292,12 @@ namespace HospitalSystemTask_OOP
             File.WriteAllLines("doctors.txt", doctors.Select(d =>
                 $"{d.Id},{d.Name},{d.Age},{d.Specialization}"
             ));
+            // save patients to file
+            File.WriteAllLines("patients.txt", patients.Select(p =>
+            $"{p.Id},{p.Name},{p.Age},{p.PhoneNumber}"
+  ));
+
+
         }
 
     }
