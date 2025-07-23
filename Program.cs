@@ -8,8 +8,12 @@ namespace HospitalSystemTask_OOP
     {
         static void Main(string[] args)
         {
+
             Hospital hospital = new Hospital();
             bool exit = false;
+
+            hospital.LoadFromFiles();
+          
 
             while (!exit) // Main menu loop
             {
