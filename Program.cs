@@ -334,6 +334,26 @@ namespace HospitalSystemTask_OOP
                 }
             }
 
+            if (File.Exists("appointments.txt"))
+            {
+                foreach (var line in File.ReadAllLines("appointments.txt"))
+                {
+                    var parts = line.Split(',');
+                    var doc = doctors.FirstOrDefault(d => d.Id == int.Parse(parts[1]));
+                    var pat = patients.FirstOrDefault(p => p.Id == int.Parse(parts[2]));
+                    if (doc != null && pat != null)
+                    {
+                        appointments.Add(new Appointment
+                        {
+                            AppointmentId = int.Parse(parts[0]),
+                            Doctor = doc,
+                            Patient = pat,
+                            AppointmentDate = DateTime.Parse(parts[3])
+                        });
+                    }
+                }
+            }
+
 
         }
     }
