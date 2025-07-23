@@ -318,6 +318,21 @@ namespace HospitalSystemTask_OOP
                     });
                 }
             }
+            
+            if (File.Exists("patients.txt")) 
+            {
+                foreach (var line in File.ReadAllLines("patients.txt"))
+                {
+                    var parts = line.Split(',');
+                    AddPatient(new Patient
+                    {
+                        Id = int.Parse(parts[0]),
+                        Name = parts[1],
+                        Age = int.Parse(parts[2]),
+                        PhoneNumber = parts[3]
+                    });
+                }
+            }
 
 
         }
