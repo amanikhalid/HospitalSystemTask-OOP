@@ -231,10 +231,14 @@ namespace HospitalSystemTask_OOP
 
     public class Hospital // Represents the hospital system
     {
+        private const string FILE_PATH = "C:\\Users\\CodeLine\\source\\repos\\HospitalSystemTask-OOP\\hospital.txt";
+
         private List<Doctor> doctors = new();
         private List<Patient> patients = new();
         private List<Appointment> appointments = new();
         private int appointmentCounter = 1;
+
+        private readonly string basePath = "C:\\HospitalData"; //
 
         public void AddDoctor(Doctor doc) => doctors.Add(doc);
         public void AddPatient(Patient pat) => patients.Add(pat);
@@ -298,14 +302,14 @@ namespace HospitalSystemTask_OOP
         public void SaveToFiles()
         {
             // save doctors to file
-            File.WriteAllLines("doctors.txt", doctors.Select(d =>
+            File.WriteAllLines("hospital.txt", doctors.Select(d =>
                 $"{d.Id},{d.Name},{d.Age},{d.Specialization}"));
             // save patients to file
-            File.WriteAllLines("patients.txt", patients.Select(p =>
+            File.WriteAllLines("hospital.txt", patients.Select(p =>
             $"{p.Id},{p.Name},{p.Age},{p.PhoneNumber}"));
 
             // save appointments to file
-            File.WriteAllLines("appointments.txt", appointments.Select(a =>
+            File.WriteAllLines("hospital.txt", appointments.Select(a =>
             $"{a.AppointmentId},{a.Doctor.Id},{a.Patient.Id},{a.AppointmentDate}"));
 
 
@@ -313,9 +317,9 @@ namespace HospitalSystemTask_OOP
 
         public void LoadFromFiles()
         { // Method to load data from files
-            if (File.Exists("doctors.txt"))
+            if (File.Exists("hospital.txt"))
             {
-                foreach (var line in File.ReadAllLines("doctors.txt"))
+                foreach (var line in File.ReadAllLines("hospital.txt"))
                 {
                     var parts = line.Split(',');
                     AddDoctor(new Doctor
@@ -328,9 +332,9 @@ namespace HospitalSystemTask_OOP
                 }
             }
             
-            if (File.Exists("patients.txt")) 
+            if (File.Exists("hospital.txt")) 
             {
-                foreach (var line in File.ReadAllLines("patients.txt"))
+                foreach (var line in File.ReadAllLines("hospital.txt"))
                 {
                     var parts = line.Split(',');
                     AddPatient(new Patient
@@ -343,9 +347,9 @@ namespace HospitalSystemTask_OOP
                 }
             }
 
-            if (File.Exists("appointments.txt"))
+            if (File.Exists("hospital.txt"))
             {
-                foreach (var line in File.ReadAllLines("appointments.txt"))
+                foreach (var line in File.ReadAllLines("hospital.txt"))
                 {
                     var parts = line.Split(',');
                     var doc = doctors.FirstOrDefault(d => d.Id == int.Parse(parts[1]));
