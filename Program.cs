@@ -302,5 +302,24 @@ namespace HospitalSystemTask_OOP
 
         }
 
+        public void LoadFromFiles()
+        { // Method to load data from files
+            if (File.Exists("doctors.txt"))
+            {
+                foreach (var line in File.ReadAllLines("doctors.txt"))
+                {
+                    var parts = line.Split(',');
+                    AddDoctor(new Doctor
+                    {
+                        Id = int.Parse(parts[0]),
+                        Name = parts[1],
+                        Age = int.Parse(parts[2]),
+                        Specialization = parts[3]
+                    });
+                }
+            }
+
+
+        }
     }
 }
