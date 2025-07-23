@@ -285,5 +285,14 @@ namespace HospitalSystemTask_OOP
             if (!filtered.Any()) Console.WriteLine("No doctors found with that specialization.");
             else foreach (var doc in filtered) doc.DisplayInfo();
         }
+
+        public void SaveToFiles()
+        {
+            // save doctors to file
+            File.WriteAllLines("doctors.txt", doctors.Select(d =>
+                $"{d.Id},{d.Name},{d.Age},{d.Specialization}"
+            ));
+        }
+
     }
 }
